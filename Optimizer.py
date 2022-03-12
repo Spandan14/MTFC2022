@@ -106,24 +106,3 @@ sol_pop = sol_pop[np.argsort(sol_pop[:, 1])]
 
 np.savetxt("solution.csv", sol_pop, delimiter=",")
 
-"""
-counter = 0
-for gen in tqdm.tqdm(result.history):
-    f_w = [individual.F[0] for individual in gen.pop]
-    f_c = [individual.F[1] for individual in gen.pop]
-    colors = ['red' if (i + 1) % 10 != 5 else 'blue' for i in range(0, len(f_w))]
-    print([[f_w[i], f_c[i]] for i in range(0, len(f_w)) if (i + 1) % 10 == 5])
-    plt.scatter([f / 1000000000000 for f in f_w], [f / 1000000 for f in f_c], c=colors, s=10)
-    plt.title(f"Pareto Front for Optimal Irrigation Technique Placement \nin the Texas Panhandle | GENERATION {counter}")
-    plt.ylabel("Total Annual Cost of Maintenance (millions of USD)")
-    plt.xlabel("Total Annual Water Usage (trillions of gallons)")
-    plt.savefig(f'./img/{counter}-image.png')
-    plt.clf()
-    counter += 1
-
-with imageio.get_writer('nsga-convergence.gif', mode='I') as writer:
-    for i in tqdm.tqdm(range(0, len(result.history))):
-        image = imageio.imread(f'./img/{i}-image.png')
-        writer.append_data(image)
-
-"""
