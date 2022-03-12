@@ -12,4 +12,3 @@ def gradient_loader(source_xlsx):  # this function simply loads county gradients
         county_gradients.append(sheet.cell(row, 2).value)  # insert value into gradient list
 
     return county_gradients
-
